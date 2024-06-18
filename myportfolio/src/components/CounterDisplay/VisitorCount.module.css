@@ -1,0 +1,30 @@
+/* src/components/CounterDisplay/VisitorCount.module.css */
+
+.visitorCountContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px; 
+    height: 120px; 
+    border-radius: 20px; 
+    background-color: #00ffff; 
+    margin: auto; 
+    margin-top: 60px;
+  }
+  
+  .visitorCountValue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; 
+    font-weight: bold;
+    opacity: 0.6;
+  }
+  
+
+  @media (max-width: 768px) {
+    .visitorCountContainer {
+      width: 80%; 
+    }
+  }
+  

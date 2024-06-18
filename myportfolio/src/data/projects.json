@@ -1,0 +1,12 @@
+[
+    {
+      "title": "Human Following Robot",
+      "imageSrc": "projects/project.png",
+      "description": "This is a project made to learn the use of ardiuno based project"
+    },
+    {
+      "title": "Heap Sort ",
+      "imageSrc": "projects/project2.png",
+      "description": "This is a project made to learn the use of Heap Sort that can applied to a sim card where there are many customers in line"
+    }
+  ]
