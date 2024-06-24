@@ -2,6 +2,6 @@ services:
   - type: web
     name: Mugdha-react-portfolio
     env: node
-    buildCommand: vite build
+    buildCommand: npm run prebuild && npm run build
     startCommand: node server/server.js
     plan: free
