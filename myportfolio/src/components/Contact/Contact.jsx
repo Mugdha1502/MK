@@ -1,4 +1,3 @@
-// src/components/Contact/Contact.jsx
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -17,10 +16,26 @@ const validationSchema = Yup.object({
 });
 
 export const Contact = () => {
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    alert("Message sent successfully!");
-    resetForm();
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+        resetForm();
+      } else {
+        alert('Failed to send message.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again later.');
+    }
   };
 
   return (
