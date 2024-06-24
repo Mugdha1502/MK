@@ -3,5 +3,5 @@ services:
     name: Mugdha-react-portfolio
     env: node
     buildCommand: npm install && npm run build
-    startCommand: npm start
+    startCommand: node server/server.js
     plan: free
