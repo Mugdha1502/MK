@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import axios from 'axios';
 
 dotenv.config();
 
@@ -42,17 +41,6 @@ app.post('/api/contact', async (req, res) => {
     const { name, email, phone, message } = req.body;
     const newContact = new Contact({ name, email, phone, message });
     await newContact.save();
-
-
-    const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
-    const text = `New contact message:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
-
-    await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-      chat_id: chatId,
-      text: text,
-    });
-
     res.status(201).send('Message sent successfully!');
   } catch (error) {
     console.error('Error saving contact message:', error);
