@@ -3,9 +3,6 @@
   Portfolio Website <br/>
   <a href="https://myportfoliomugdha.netlify.app/" target="_blank">Mugdha.tech</a>
 </h2>
-<div align="center">
-  <img alt="Demo" src="/favicon.ico" />
-</div>
 
 <br/>
 <h1 align="center">Hi 👋, I'm Mugdha Kamble</h1>
