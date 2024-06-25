@@ -1,10 +1,10 @@
 <img align="center" width="5000" height="300" src="https://github.com/Mugdha1502/Mugdha-react-portfolio/assets/172101486/3dacb47a-bded-4d51-8a2c-867f7a7bdd0e" alt="Background">
 <h2 align="center">
-  Portfolio Website - v2.0<br/>
-  <a href="https://soumyajit.vercel.app/" target="_blank">soumyajit.tech</a>
+  Portfolio Website <br/>
+  <a href="https://myportfoliomugdha.netlify.app/" target="_blank">Mugdha.tech</a>
 </h2>
 <div align="center">
-  <img alt="Demo" src="./Images/readme-img1.png" />
+  <img alt="Demo" src="/favicon.ico" />
 </div>
 
 <br/>
