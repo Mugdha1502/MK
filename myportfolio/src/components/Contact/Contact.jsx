@@ -30,6 +30,8 @@ export const Contact = () => {
         alert('Message sent successfully!');
         resetForm();
       } else {
+        const errorText = await response.text();
+        console.error('Failed to send message:', response.status, errorText);
         alert('Failed to send message.');
       }
     } catch (error) {

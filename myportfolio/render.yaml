@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: Mugdha-react-portfolio
-    env: node
-    buildCommand: npx vite build
-    startCommand: node server/server.js
-    plan: free

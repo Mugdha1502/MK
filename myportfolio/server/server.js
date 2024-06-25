@@ -4,7 +4,6 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import axios from 'axios';
-import nodemailer from 'nodemailer';
 
 dotenv.config();
 
@@ -37,21 +36,13 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model('Contact', contactSchema);
 
-// Configure Nodemailer
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-});
-
 // Routes
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
     const newContact = new Contact({ name, email, phone, message });
     await newContact.save();
+
 
     const botToken = process.env.TELEGRAM_BOT_TOKEN;
     const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -61,15 +52,6 @@ app.post('/api/contact', async (req, res) => {
       chat_id: chatId,
       text: text,
     });
-
-    const mailOptions = {
-      from: process.env.EMAIL,
-      to: process.env.EMAIL,
-      subject: 'Contact Form Submission',
-      text: `New contact message:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
-    };
-
-    await transporter.sendMail(mailOptions);
 
     res.status(201).send('Message sent successfully!');
   } catch (error) {
