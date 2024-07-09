@@ -1,8 +1,17 @@
-env:
-- key: PORT
-  value: "5000"
-- key: MONGODB_URI
-- key: mongodb+srv://Kamble15:Mugdha@mugdha.8tz8jff.mongodb.net/mydatabase
-  from_secret: true #Use Render secrets for sensitive data
-build_command: npm install  --production
-start_command: node server/server.js
+services:
+  - type: web
+    name: myportfolio
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "node server/server.js"
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        value: mongodb+srv://Kamble15:Mugdha@mugdha.8tz8jff.mongodb.net/mydatabase
+      - key: TELEGRAM_API_TOKEN
+        value: 5906147420:AAG_qZxnlZ568J5tUgsbRxAnYYTQEl1eSuU
+      - key: TELEGRAM_CHAT_ID
+        value:1259863464
