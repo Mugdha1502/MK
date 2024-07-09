@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: myportfolio
+    name: Mugdha-react-portfolio
     env: node
     region: oregon
     plan: free
