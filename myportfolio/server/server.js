@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
@@ -17,13 +18,13 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB connection
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log('Connected to MongoDB');
-  })
-  .catch(err => {
-    console.error('MongoDB connection error:', err);
-  });
+// eslint-disable-next-line no-undef
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,  
+})   
+ .then(() => console.log("Database connected!"))
+ .catch(err => console.log(err));
 
 // Define a schema
 const contactSchema = new mongoose.Schema({
@@ -61,8 +62,8 @@ app.post('/api/contact', async (req, res) => {
 
     res.status(201).send('Message sent successfully!');
   } catch (error) {
-    console.error('Error saving contact message:', error);
-    res.status(500).send('Internal Server Error');
+    console.error('Error handling /api/contact:', error);
+    res.status(500).json({ error: 'Internal Server Error', details: error.message });
   }
 });
 

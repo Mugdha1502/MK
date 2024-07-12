@@ -33,6 +33,7 @@ export const Navbar = () => {
           <NavLink className={(e)=>{return e.isActive?"red":""}}to="/experience"><i class="fas fa-briefcase icon"></i> Experience</NavLink>
           <NavLink className={(e)=>{return e.isActive?"red":""}}to="/projects"><i class="fas fa-laptop-code icon"></i>Projects</NavLink>
           <NavLink className={(e)=>{return e.isActive?"red":""}}to="/contact"><i class="fas fa-envelope icon"></i>Contact</NavLink>
+          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/blog"><i class="fas fa-blog icon"></i>Blog</NavLink>
         </ul>
       </div>
     </nav>

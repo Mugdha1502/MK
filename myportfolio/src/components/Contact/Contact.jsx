@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -24,14 +25,14 @@ export const Contact = () => {
         },
         body: JSON.stringify(values),
       });
-
+  
       if (response.ok) {
         alert('Message sent successfully!');
         resetForm();
       } else {
         const errorText = await response.text();
         console.error('Failed to send message:', response.status, errorText);
-        alert('Failed to send message.');
+        alert(`Failed to send message: ${response.status} ${errorText}`);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
