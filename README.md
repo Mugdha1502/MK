@@ -88,6 +88,9 @@ The page will reload if you make edits.
 Open the project folder and Navigate to /src/components/. <br/>
 You will find all the components used and you can edit your information accordingly.
 
+## HOW TO CONNECT BACKEND 
+<h4>To connect your backend server to MongoDB, you typically use a MongoDB driver (like Mongoose for Node.js). First, install the driver via npm, configure it with your MongoDB connection URI, then use it to establish a connection in your server code. This allows your backend to interact with MongoDB, performing operations such as inserting, querying, updating, and deleting data as needed. Then host it on site like render</h4>
+
  ## HOW TO CONNECT BACKEND 
 <h4>To connect your backend server to MongoDB, you typically use a MongoDB driver (like Mongoose for Node.js). First, install the driver via npm, configure it with your MongoDB connection URI, then use it to establish a connection in your server code. This allows your backend to interact with MongoDB, performing operations such as inserting, querying, updating, and deleting data as needed. Then host it on site like render</h4>
 <h3 align="left">Languages and Tools:</h3>
