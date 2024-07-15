@@ -1,0 +1,148 @@
+/* Blog container */
+.blog {
+    font-family: Arial, sans-serif;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Blog header */
+.blog h2 {
+    margin-bottom: 10px;
+}
+
+/* Admin Login section */
+.blog form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.blog form input[type="text"],
+.blog form input[type="password"],
+.blog form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* Logout button */
+.blog button.logout {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .blog button.logout:hover {
+    background-color: #0056b3;
+  }
+  
+
+.blog form button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.blog form button:hover {
+    background-color: #0056b3;
+}
+
+/* Posts section */
+.blog .post {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.blog .post h3 {
+    margin-bottom: 10px;
+}
+
+.blog .post p {
+    margin-bottom: 5px;
+}
+
+/* Comments section */
+.blog .comments {
+    margin-top: 10px;
+}
+
+.blog .comments h4 {
+    margin-bottom: 5px;
+}
+
+.blog .comment {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+
+/* Add comment form */
+.blog .comments form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog .comments form input[type="text"] {
+    width: calc(100% - 85px); /* Adjusted width to fit the button */
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.blog .comments form button {
+    width: 80px; /* Fixed width for the button */
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.blog .comments form button:hover {
+    background-color: #0056b3;
+}
+
+/* Edit and Delete buttons */
+.blog .post button {
+    margin-right: 10px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.blog .post button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+.blog .footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}

@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
 import {NavLink} from 'react-router-dom';
 import styles from "./Navbar.module.css";
@@ -28,12 +29,12 @@ export const Navbar = () => {
         >
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 
-          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/"><i class="fas fa-home icon"></i>Home</NavLink>
-          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/about"><i class="fas fa-user icon"></i>About</NavLink>
-          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/experience"><i class="fas fa-briefcase icon"></i> Experience</NavLink>
-          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/projects"><i class="fas fa-laptop-code icon"></i>Projects</NavLink>
-          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/contact"><i class="fas fa-envelope icon"></i>Contact</NavLink>
-          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/blog"><i class="fas fa-blog icon"></i>Blog</NavLink>
+          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/"><i className="fas fa-home icon"></i>Home</NavLink>
+          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/about"><i className="fas fa-user icon"></i>About</NavLink>
+          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/experience"><i className="fas fa-briefcase icon"></i> Experience</NavLink>
+          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/projects"><i className="fas fa-laptop-code icon"></i>Projects</NavLink>
+          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/contact"><i className="fas fa-envelope icon"></i>Contact</NavLink>
+          <NavLink className={(e)=>{return e.isActive?"red":""}}to="/blog"><i className="fas fa-blog icon"></i>Blog</NavLink>
         </ul>
       </div>
     </nav>

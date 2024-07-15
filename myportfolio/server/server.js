@@ -5,6 +5,8 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import axios from 'axios';
+import postRouter from './routes/posts.js'; 
+import Contact from './models/Contact.js';
 
 dotenv.config();
 
@@ -18,23 +20,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // MongoDB connection
-// eslint-disable-next-line no-undef
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,  
-})   
- .then(() => console.log("Database connected!"))
- .catch(err => console.log(err));
-
-// Define a schema
-const contactSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  phone: String,
-  message: String,
-});
-
-const Contact = mongoose.model('Contact', contactSchema);
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('Database connected!'))
+  .catch(err => console.log(err));
 
 // Function to send Telegram notification
 const sendTelegramNotification = async (message) => {
@@ -49,15 +40,16 @@ const sendTelegramNotification = async (message) => {
   }
 };
 
-// Routes
+// Contact form route
 app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
+    // eslint-disable-next-line no-undef
     const newContact = new Contact({ name, email, phone, message });
     await newContact.save();
 
     // Send Telegram notification
-    const notificationMessage =` New Contact Submission:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
+    const notificationMessage = `New Contact Submission:\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
     await sendTelegramNotification(notificationMessage);
 
     res.status(201).send('Message sent successfully!');
@@ -67,6 +59,10 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+// Use the posts routes
+app.use('/api/posts', postRouter);
+
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
