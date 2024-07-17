@@ -6,15 +6,16 @@ const Blog = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
-  const [posts, setPosts] = useState([]); // Initialize posts as an empty array
+  const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState({ title: '', content: '', author: '', date: '' });
   const [editPost, setEditPost] = useState(null);
   const [newComment, setNewComment] = useState('');
+  const [expandedPosts, setExpandedPosts] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/posts')
       .then(response => {
-        console.log(response.data); // Log response to check the format
+        console.log(response.data);
         if (Array.isArray(response.data)) {
           setPosts(response.data);
         } else {
@@ -92,6 +93,14 @@ const Blog = () => {
       .catch(error => console.error('Error adding comment:', error));
   };
 
+  const toggleExpanded = (postId) => {
+    if (expandedPosts.includes(postId)) {
+      setExpandedPosts(expandedPosts.filter(id => id !== postId));
+    } else {
+      setExpandedPosts([...expandedPosts, postId]);
+    }
+  };
+
   return (
     <div className={styles.blog}>
       <div className={styles['blog-container']}>
@@ -155,7 +164,17 @@ const Blog = () => {
         {Array.isArray(posts) && posts.map((post) => (
           <div key={post._id} className={styles.post}>
             <h3>{post.title}</h3>
-            <p>{post.content}</p>
+            {expandedPosts.includes(post._id) ? (
+              <>
+                <p>{post.content}</p>
+                <button onClick={() => toggleExpanded(post._id)}>Read Less</button>
+              </>
+            ) : (
+              <>
+                <p>{post.content.substring(0, 100)}...</p>
+                <button onClick={() => toggleExpanded(post._id)}>Read More</button>
+              </>
+            )}
             <p>Author: {post.author}</p>
             <p>Date: {post.date}</p>
 
@@ -202,7 +221,17 @@ const Blog = () => {
             posts.map((post) => (
               <div key={post._id} className={styles.post}>
                 <h3>{post.title}</h3>
-                <p>{post.content}</p>
+                {expandedPosts.includes(post._id) ? (
+                  <>
+                    <p>{post.content}</p>
+                    <button onClick={() => toggleExpanded(post._id)}>Read Less</button>
+                  </>
+                ) : (
+                  <>
+                    <p>{post.content.substring(0, 100)}...</p>
+                    <button onClick={() => toggleExpanded(post._id)}>Read More</button>
+                  </>
+                )}
                 <p>Author: {post.author}</p>
                 <p>Date: {post.date}</p>
               </div>
